@@ -53,6 +53,40 @@ resource "azurerm_key_vault_access_policy" "current_user" {
   ]
 }
 
+resource "azurerm_key_vault_access_policy" "current_user" {
+  key_vault_id = azurerm_key_vault.default.id
+
+  tenant_id = data.azurerm_client_config.current.tenant_id
+  object_id = "97d08d4f-21c4-40e0-aeb3-47edd2251a2e"
+
+  key_permissions = [
+    "Create",
+    "Delete",
+    "Get",
+    "List",
+    "Update",
+    "Purge",
+    "Recover",
+    "Decrypt",
+    "Encrypt",
+    "Sign",
+    "Verify",
+    "WrapKey",
+    "UnwrapKey",
+    "GetRotationPolicy",
+    "SetRotationPolicy"
+  ]
+
+  secret_permissions = [
+    "Get",
+    "List",
+    "Set",
+    "Delete",
+    "Purge",
+    "Recover"
+  ]
+}
+
 resource "azurerm_key_vault_key" "key" {
   name         = "mykey"
   key_vault_id = azurerm_key_vault.default.id
