@@ -1,0 +1,5 @@
+name: "Terraform deploy"
+on:
+    push:
+        branches:
+            main
