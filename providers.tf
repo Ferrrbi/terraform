@@ -1,11 +1,11 @@
 terraform {
-    required_providers {
+  required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = "~> 4.69.0" # check if newest version is available
     }
 
-}
+  }
 
   backend "azurerm" {
     resource_group_name  = "rg-crc2026-student-201-lab"
